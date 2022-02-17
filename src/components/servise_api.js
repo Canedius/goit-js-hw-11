@@ -3,7 +3,7 @@ export default class ApiService {
   constructor() {
       this.searchQuery = ""   
       this.page = 1
-      this.pageper_page = 0
+      
   }
   async fetchArticles() {
     const URL = 'https://pixabay.com/api/';
@@ -22,10 +22,7 @@ export default class ApiService {
     try {
       const axios = require('axios').default
       return axios.get(URL,options).then(res => {
-        console.log(res.data);
-        Notiflix.Notify.info(`Hooray! We found ${res.data.totalHits - this.pageper_page } images.`)
-        this.pageper_page += 40
-        this.page +=1
+       
         return res.data.hits}).catch(erorr => Notiflix.Notify.info("We're sorry, but you've reached the end of search results."));
     } catch (error) {
       console.error(error);
