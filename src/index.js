@@ -16,6 +16,7 @@ function loadImages(e) {
  e.preventDefault();
  clearMarkup()
  newsApi.page = 1
+ newsApi.pageper_page = 0
  newsApi.query = e.currentTarget.elements.searchQuery.value.trim()
  loadMore()
  newsApi.resetPage()
