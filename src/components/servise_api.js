@@ -22,7 +22,7 @@ export default class ApiService {
     try {
       const axios = require('axios').default
       return axios.get(URL,options).then(res => {
-       
+        this.page += 1
         return res.data.hits}).catch(erorr => Notiflix.Notify.info("We're sorry, but you've reached the end of search results."));
     } catch (error) {
       console.error(error);
